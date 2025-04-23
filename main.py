@@ -10,7 +10,6 @@ video = cv2.VideoCapture('cars.mp4')
 WIDTH = 1280
 HEIGHT = 720
 
-
 def estimateSpeed(location1, location2):
 	d_pixels = math.sqrt(math.pow(location2[0] - location1[0], 2) + math.pow(location2[1] - location1[1], 2))
 	# ppm = location2[2] / carWidht
