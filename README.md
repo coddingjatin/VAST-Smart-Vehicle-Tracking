@@ -26,7 +26,18 @@ Built using **Python, OpenCV, and dlib**, this project is ideal for smart traffi
 - Calculates vehicle speed by tracking pixel movement per second.
 - Converts pixel distance to meters using manually calibrated **pixels-per-meter (ppm)**.
 - Final speed (in km/h) = `d_meters * fps * 3.6`
+  
+### 📊 Speed Calculation Explained
+- Manually estimate road width in meters
+- Measure the road width in pixels from video
+- Calculate ppm (pixels-per-meter) = `pixels / meters`
+- Track vehicle pixel movement across frames (d_pixels)
+- Convert to meters: `d_meters = d_pixels / ppm`
+- Estimate speed:
+`m/s = d_meters * fps` &
+`km/h = d_meters * fps * 3.6`
 
+- ⚠️ Each video may need custom ppm based on camera angle and road.
 ---
 
 ## 📁 Project Structure
@@ -71,19 +82,7 @@ pip install -r requirements.txt
 python main.py
 ```
 ---
-📊 Speed Calculation Explained
-- Manually estimate road width in meters
-- Measure the road width in pixels from video
-- Calculate ppm (pixels-per-meter) = `pixels / meters`
-- Track vehicle pixel movement across frames (d_pixels)
-- Convert to meters: `d_meters = d_pixels / ppm`
-- Estimate speed:
-`m/s = d_meters * fps` &
-`km/h = d_meters * fps * 3.6`
 
-- ⚠️ Each video may need custom ppm based on camera angle and road.
-
----
 ## 🌟 Show Some Love
 
 - If you like this project, consider giving it a ⭐  
